@@ -1,5 +1,18 @@
+.container {
+  position: relative;
+}
+
 .canvas {
   border: 1px solid black;
   border-radius: var(--border-radius);
   cursor: crosshair;
+}
+
+.textbox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  width: 120px;
 }

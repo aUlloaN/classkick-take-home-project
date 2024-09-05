@@ -1,6 +1,6 @@
-import { EraserIcon, PencilIcon } from "hugeicons-react";
-import { Tool } from "../../types";
-import { FC } from "react";
+import { FC } from 'react';
+import { EraserIcon, PencilIcon, TextIcon } from 'hugeicons-react';
+import { Tool } from '../../types';
 
 interface ToolButtonProps {
   tool: Tool;
@@ -10,6 +10,7 @@ interface ToolButtonProps {
 const ICON = {
   pencil: PencilIcon,
   eraser: EraserIcon,
+  text: TextIcon,
 };
 
 export const ToolButton: FC<ToolButtonProps> = ({ tool, onClick }) => {
