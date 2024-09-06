@@ -1,5 +1,8 @@
 # Classkick Front End Engineering Take Home Project
 
+## Summary
+You can check the summary of this challenge [here](SUMMARY.md).
+
 ## Intro
 Welcome! and thank you for taking the time to complete the Classkick take-home challenge for our Senior/Staff Frontend Engineer position.
 
