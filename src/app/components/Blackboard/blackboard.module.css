@@ -4,8 +4,9 @@
 
 .canvas {
   border: 1px solid black;
-  border-radius: var(--border-radius);
+  border-radius: 0 12px 12px 12px;
   cursor: crosshair;
+  width: 100%;
 }
 
 .textbox {

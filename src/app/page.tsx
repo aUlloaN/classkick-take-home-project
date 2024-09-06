@@ -23,19 +23,8 @@ export default function Home() {
       </div>
 
       <br></br><br></br>
-      <h3>Mock &nbsp;</h3>
-      <div className={styles.center}>
-        <Image
-          src="/classkick-take-home.png"
-          alt="Classkick Take Home"
-          width={450}
-          height={350}
-          priority
-        />
-      </div>
-
+      <h3>Blackboard</h3>
       <br></br><br></br>
-      <h3>Blackboard &nbsp;</h3>
       <Blackboard />
     </main>
   )

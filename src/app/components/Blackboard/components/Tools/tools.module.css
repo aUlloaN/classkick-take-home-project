@@ -1,4 +1,42 @@
-.buttons {
+.container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.flexBox {
+  display: flex;
+  align-items: center;
+}
+
+.customizers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hide {
+  display: none;
+}
+
+.toolButton {
+  border-color: #000000;
+  border-width: 1px 1px 0 1px;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  padding: 4px;
+}
+.toolButton.active {
+  background-color: #FFFFFF;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .colorInput {
+    width: 30px;
+  }
+
+  .sizeInput {
+    width: 50px;
+  }
 }

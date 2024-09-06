@@ -1,7 +1,7 @@
 import React, { useRef, useState, MouseEvent, useEffect, KeyboardEvent } from 'react';
 import Tools from './components/Tools';
 import styles from './blackboard.module.css';
-import { DEFAULT_COLOR, DEFAULT_TEXT_SIZE, ERASER_COLOR, ERASER_TOOL_ALIAS, PENCIL_TOOL_ALIAS, TEXT_TOOL_ALIAS } from './constants';
+import { DEFAULT_COLOR, DEFAULT_SIZE, ERASER_COLOR, ERASER_TOOL_ALIAS, PENCIL_TOOL_ALIAS, TEXT_TOOL_ALIAS } from './constants';
 import { Tool } from './types';
 
 export const Blackboard = () => {
@@ -9,6 +9,9 @@ export const Blackboard = () => {
   const textInputRef = useRef<HTMLInputElement | null>(null);
 
   const [tool, setTool] = useState<Tool>(PENCIL_TOOL_ALIAS);
+  const [color, setColor] = useState<string>(DEFAULT_COLOR);
+  const [lineWidth, setLineWidth] = useState<number>(DEFAULT_SIZE);
+
   const [drawing, setDrawing] = useState(false);
   const [textMode, setTextMode] = useState(false); 
 
@@ -53,7 +56,7 @@ export const Blackboard = () => {
       textInput.style.position = 'absolute';
       textInput.style.left = `${nativeEvent.offsetX}px`;
       textInput.style.top = `${nativeEvent.offsetY}px`;
-      textInput.style.fontSize = `${DEFAULT_TEXT_SIZE}px`;
+      textInput.style.fontSize = `${lineWidth * 5}px`;
       textInput.focus();
     };
   };
@@ -75,8 +78,8 @@ export const Blackboard = () => {
         const posX = Number(textInput.style.left.replace('px', ''));
         const posY = Number(textInput.style.top.replace('px', ''));
         ctx.textBaseline = "top";
-        ctx.fillStyle = DEFAULT_COLOR;
-        ctx.font = `${DEFAULT_TEXT_SIZE}px Arial`;
+        ctx.fillStyle = color;
+        ctx.font = `${lineWidth * 5}px Arial`;
         ctx.fillText(text, posX, posY);
         hideInput();
       }
@@ -102,15 +105,22 @@ export const Blackboard = () => {
         ctx.strokeStyle = ERASER_COLOR;
         ctx.lineWidth = 20;
       } else {
-        ctx.strokeStyle = DEFAULT_COLOR;
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = lineWidth;
       }
     }
-  }, [tool]);
+  }, [tool, color, lineWidth]);
 
   return (
     <div>
-      <Tools onChange={setTool} />
+      <Tools
+        tool={tool}
+        color={color}
+        size={lineWidth}
+        onToolChange={setTool}
+        onColorChange={setColor}
+        onSizeChange={setLineWidth}
+      />
       <div className={styles.container}>
         <input
           className={styles.textbox}

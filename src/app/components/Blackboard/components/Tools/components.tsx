@@ -1,9 +1,11 @@
 import { FC } from 'react';
 import { EraserIcon, PencilIcon, TextIcon } from 'hugeicons-react';
+import styles from './tools.module.css';
 import { Tool } from '../../types';
 
 interface ToolButtonProps {
   tool: Tool;
+  isActive: boolean;
   onClick: () => void;
 }
 
@@ -13,7 +15,7 @@ const ICON = {
   text: TextIcon,
 };
 
-export const ToolButton: FC<ToolButtonProps> = ({ tool, onClick }) => {
+export const ToolButton: FC<ToolButtonProps> = ({ tool, isActive, onClick }) => {
   const Icon = ICON[tool];
 
   if (!Icon) {
@@ -21,7 +23,10 @@ export const ToolButton: FC<ToolButtonProps> = ({ tool, onClick }) => {
   }
 
   return (
-    <button onClick={onClick}>
+    <button
+      className={`${styles.toolButton} ${isActive ? styles.active : ''}`}
+      onClick={onClick}
+    >
       <Icon size={32} />
     </button>
   );
