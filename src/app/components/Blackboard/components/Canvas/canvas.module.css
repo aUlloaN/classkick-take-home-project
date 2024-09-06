@@ -10,10 +10,12 @@
 }
 
 .textbox {
+  all: unset;
   display: none;
   position: absolute;
   top: 0;
   left: 0;
   border: none;
   width: 120px;
+  font-family: Arial, Helvetica, sans-serif;
 }
