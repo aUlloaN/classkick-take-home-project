@@ -101,7 +101,7 @@ export const Canvas: FC<CanvasProps> = ({ tool, color, size }) => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas && canvas.getContext('2d');
-    if (ctx && !textMode) {
+    if (ctx && tool !== ToolType.Text) {
       ctx.strokeStyle = tool === ToolType.Eraser ? ERASER_COLOR : color;
       ctx.lineWidth = tool === ToolType.Eraser ? ERASER_SIZE : size;
     }
