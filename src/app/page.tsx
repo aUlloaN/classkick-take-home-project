@@ -9,6 +9,7 @@ export default function Home() {
 
       <div className={styles.code}>
         <p>Frontend Engineer Take Home Project</p>
+        <p>by <a href="https://github.com/aUlloaN">Anthony Ulloa</a></p>
       </div>
       
       <div className={styles.center}>
