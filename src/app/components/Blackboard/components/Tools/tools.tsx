@@ -17,7 +17,7 @@ export const Tools: FC<ToolsProps> = ({ tool, color, size, onToolChange, onColor
 
   return (
     <div className={styles.container}>
-      <div className={styles.flexBox}>
+      <nav role="toolbar" aria-label="Drawing Tools">
         {toolTypes.map((toolType) => (
           <ToolButton
             key={toolType}
@@ -26,7 +26,7 @@ export const Tools: FC<ToolsProps> = ({ tool, color, size, onToolChange, onColor
             onClick={() => onToolChange(toolType)}
           />
         ))}
-      </div>
+      </nav>
       {tool !== ToolType.Eraser && (
         <Customizers
           color={color}

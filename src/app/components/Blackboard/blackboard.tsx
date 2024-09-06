@@ -10,7 +10,7 @@ export const Blackboard = () => {
   const [size, setSize] = useState<number>(DEFAULT_SIZE);
 
   return (
-    <div>
+    <div role="application" aria-label="Interactive Blackboard">
       <Tools
         tool={tool}
         color={color}

@@ -112,6 +112,7 @@ export const Canvas: FC<CanvasProps> = ({ tool, color, size }) => {
       <input
         className={styles.textbox}
         ref={textInputRef}
+        aria-label="Enter text"
         type="text"
         placeholder="Enter text"
         onBlur={hideInput}
@@ -120,6 +121,8 @@ export const Canvas: FC<CanvasProps> = ({ tool, color, size }) => {
       <canvas
         className={styles.canvas}
         ref={canvasRef}
+        aria-label="Drawing Canvas"
+        tabIndex={0}
         width={450}
         height={300}
         onMouseDown={startDrawing}

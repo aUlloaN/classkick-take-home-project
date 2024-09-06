@@ -22,6 +22,8 @@ export const ToolButton: FC<ToolButtonProps> = ({ tool, isActive, onClick }) => 
 
   return (
     <button
+      aria-label={`${tool} tool`}
+      aria-pressed={isActive}
       className={`${styles.toolButton} ${isActive ? styles.active : ''}`}
       onClick={onClick}
     >
@@ -43,6 +45,7 @@ export const Customizers: FC<CustomizersProps> = ({ color, size, onColorChange, 
       <label>Color:</label>
       <input
         className={styles.colorInput}
+        aria-label="Color Input"
         type="color"
         value={color}
         onChange={(e: ChangeEvent<HTMLInputElement>) => onColorChange(e.target.value)}
@@ -52,6 +55,7 @@ export const Customizers: FC<CustomizersProps> = ({ color, size, onColorChange, 
       <label>Size:</label>
       <input
         className={styles.sizeInput}
+        aria-label="Size Input"
         type="range"
         value={size}
         min="2"
